@@ -1,13 +1,23 @@
-import {Module} from '@nestjs/common';
-import {SharedModule} from 'src/shared/shared.module';
-import {AuthController} from './auth.controller';
-import {AuthService} from './auth.service';
-import {JwtStrategy} from './jwt.strategy';
+import { Module } from '@nestjs/common';
+import { AuthController } from './auth.controller';
+import { AuthService } from './auth.service';
+import { UserModule } from '../user/user.module';
+import { JwtModule } from '@nestjs/jwt';
+import { PassportModule } from '@nestjs/passport';
+import { JwtStrategy } from './jwtStrategy';
+import { AuthGateway } from './auth.gateway';
+import {SerialService} from "../serial/serial.service";
 
 @Module({
-    imports: [SharedModule],
-    controllers: [AuthController],
-    providers: [AuthService, JwtStrategy],
+  controllers: [AuthController],
+  imports: [
+    UserModule,
+    PassportModule,
+    JwtModule.register({
+      secret: 'secretKey',
+      signOptions: { expiresIn: '86400s' },
+    }),
+  ],
+  providers: [AuthService, JwtStrategy, AuthGateway, SerialService],
 })
-
 export class AuthModule {}

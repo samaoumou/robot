@@ -1,22 +1,40 @@
-import { Module } from '@nestjs/common';
+/* eslint-disable prettier/prettier */
+import { Module, OnModuleInit } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { UserModule } from './user/user.module';
 import { MongooseModule } from '@nestjs/mongoose';
-import { SharedModule } from './shared/shared.module';
-import { AuthController } from 'src/auth/auth.controller';
-import { AuthService } from 'src/auth/auth.service';
-import { AuthModule } from 'src/auth/auth.module';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module';
+import { PlantesModule } from './plantes/plantes.module';
+import { ClimatModule } from './climat/climat.module';
+import { SerialService } from './serial/serial.service';
+import { ScheduleModule } from '@nestjs/schedule';
+/* import { TasksService } from './tasks/tasks.service';
+import { TasksModule } from './tasks/tasks.module'; */
+
 
 @Module({
   imports: [
-      // connect to the database
-      MongooseModule.forRoot('mongodb+srv://issa:0501Issa@cluster0.szgf3wm.mongodb.net/User'),
-      // shared module
-      SharedModule,
-      // auth module
-      AuthModule,
+    UserModule,
+    ClimatModule,
+    //Lien avec la base de donnée MongoDB
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    ScheduleModule.forRoot(),
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: async (configService: ConfigService) => ({
+        uri: configService.get<string>('MONGODB_URI'),
+      }),
+    }),
+    AuthModule,
+    PlantesModule,
+   // TasksModule,
   ],
-  controllers: [AppController, AuthController],
-  providers: [AppService, AuthService],
+  controllers: [AppController],
+  providers: [AppService, SerialService, /* TasksService */],
 })
 export class AppModule {}

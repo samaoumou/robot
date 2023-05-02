@@ -1,18 +1,30 @@
-import {Injectable} from '@nestjs/common';
-import {sign} from 'jsonwebtoken';
-import {UserService} from 'src/shared/user.service';
+/* eslint-disable prettier/prettier */
+import { ConsoleLogger, Injectable } from '@nestjs/common';
+import { UserService } from '../user/user.service';
+import { JwtService } from '@nestjs/jwt';
+import { LoginUserDto } from '../user/dto/login-user.dto';
+import { RfidDto } from '../user/dto/rfid-user.dto';
 
+@Injectable()
 export class AuthService {
-    // define user service
-    constructor(private userService: UserService) {}
+  logger = new ConsoleLogger();
+  constructor(
+    private userService: UserService,
+    private jwtService: JwtService,
+  ) {}
+  //creation du token pour l'utilisateur
+  async login(loginUserDto: LoginUserDto) {
+    const payload = await this.userService.login(loginUserDto);
+    //signature du token de l'utilisateur
+    return { access_token: this.jwtService.sign(payload) };
+  }
 
-    async signPayload(payload: any) {
-        // token to expire in 12 hours
-        let token = sign(payload, 'secretKey', { expiresIn: '12h' });
-        return token;
+/*   async loginRfid(rfidDto: RfidDto) {
+    const payload = await this.userService.loginRfid(rfidDto);
+    if (payload.error) {
+      return payload;
     }
-//définis une méthode de validation d'un utilisateur basée sur la charge utile JWT
-    async validateUser(payload: any) {
-        return await this.userService.findByPayload(payload);
-    }
-    }
+    //signature du token de l'utilisateur
+    return { access_token: this.jwtService.sign(payload) };
+  } */
+}

@@ -1,45 +1,25 @@
-import {Body,Controller,Post,Get} from '@nestjs/common';
-import {AuthService} from './auth.service';
-import {LoginDTO,RegisterDTO} from './auth.dto';
-import {UserService} from 'src/shared/user.service';
+import { Body, Controller, Get, Post, Req, UseGuards } from '@nestjs/common';
+import { AuthService } from './auth.service';
+import { LoginUserDto } from '../user/dto/login-user.dto';
+import { User } from '../user/entities/user.entity';
+import { JwtAuthGuard } from './jwtAuthGuard';
+
+type RequestWithUser = Request & { user: Partial<User> };
 
 @Controller('auth')
 export class AuthController {
-    // define the auth and user service.
-    constructor(private authService: AuthService, private userService: UserService) { }
+  constructor(private authService: AuthService) {}
 
-    // login route
-@Post('login')
-// find the user based on the input data
-async login(@Body() userDTO: LoginDTO) {
-    const user = await this.userService.findByLogin(userDTO);
-    // define a payload
-    const payload = {
-        email: user.email,
-    }
-    //get a JWT authentication token from the payload
-    const token = await this.authService.signPayload(payload);
-    // return the user and the token
-    return {
-        user, token
-    }
-}
+  //Route pour l'authentification
+  //@UseInterceptors(new ErrorsInterceptor())
+  @Post('login')
+  login(@Body() loginUserDto: LoginUserDto) {
+    return this.authService.login(loginUserDto);
+  }
 
-// registration route
-@Post('register')
-async register(@Body() userDTO: RegisterDTO) {
-    // Create user based on the input data
-    const user = await this.userService.create(userDTO);
-    // define a payload
-    const payload = {
-        email: user.email,
-    }
-    // get a JWT authentication token from the payload
-    const token = await this.authService.signPayload(payload);
-    // return the user and the token
-    return { user, token }
-}
-
-//obtenir l'utilisateur
-
+  @UseGuards(JwtAuthGuard)
+  @Get('/profile')
+  profile(@Req() request: RequestWithUser) {
+    return request.user;
+  }
 }
