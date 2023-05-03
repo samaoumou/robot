@@ -1,5 +1,5 @@
 import './Sidebar.css'
-import imgSerre from '../../assets/serre.png'
+import voiture2 from '../../assets/voiture2.jpeg'
 import {Link, useLocation, useNavigate} from 'react-router-dom'
 
 function Sidebar() {
@@ -23,7 +23,7 @@ function Sidebar() {
           </Link>
         <Link to={'/dashboard'}>
             <div className='flex justify-center'>
-              <img className='w-44 h-44' src={imgSerre} alt="image serre" />
+              <img className='w-44 h-44' src={voiture2} alt="image serre" />
             </div>
         </Link>
         <Link to="modificationProfil">

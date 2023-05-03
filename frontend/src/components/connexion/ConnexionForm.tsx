@@ -77,8 +77,8 @@ const ConnexionForm = () => {
   }
   return (
     <div className=" flex ">
-      <div className=" h-screen w-screen drop-shadow-5xl bg-[url('assets/image.jpeg')] bg-no-repeat bg-cover bg-center flex justify-end">
-        <div className="bg-gray-100/25 m-8 mr-20 w-3/6">
+      <div className=" h-screen w-screen drop-shadow-5xl bg-[url('assets/voiture2.jpeg')] bg-no-repeat bg-cover bg-center flex justify-end">
+        <div className="bg-blue-400/25 m-8 mr-20 w-3/6">
           <h1 className="flex justify-center font-bold mt-10 text-4xl text-white">CONNEXION</h1>
 
               {errorMessage !=='' && <p className='text-red-600 mt-1 bg-red-100 mx-36 py-1 rounded-md  font-bold text-md text-center'>{ errorMessage }</p>}
@@ -87,7 +87,7 @@ const ConnexionForm = () => {
           <form onSubmit={handleSubmit(onSubmit)} className="  flex flex-col px-32 gap-5 mt-10 items-center">
             <div className="flex flex-col gap-2">
               <div className="flex items-center w-full">
-                <div className="bg-green-600 mt-2 p-2 flex justify-center items-center">
+                <div className="bg-black mt-2 p-2 flex justify-center items-center">
                   <FaUserAlt className="w-10 h-8 text-white"/>
                 </div>
                 <div className="relative">
@@ -109,7 +109,7 @@ const ConnexionForm = () => {
             </div>
             <div className="flex flex-col gap-2">
               <div className="flex items-center w-full">
-                <div className="bg-green-600 mt-10 p-2 flex justify-center items-center">
+                <div className="bg-black mt-10 p-2 flex justify-center items-center">
                   <FaLock className="w-10 h-8 text-white"/>
                 </div>
                 <div className="mt-10 relative">
@@ -129,12 +129,12 @@ const ConnexionForm = () => {
               </div>
             </div>
         <div>
-        <button className="p-4 mt-6 bg-green-600 rounded text-white font-bold text-xl  hover:bg-green-700">Se Connecter</button>
+        <button className="p-4 mt-6 bg-gray-50/25 rounded text-white font-bold text-xl  hover:bg-green-700">Se Connecter</button>
         </div>
-        <div>
+       {/*  <div>
         <h1 className="flex justify-center font-bold  text-3xl text-white underline underline-offset-4">Poser votre carte !</h1>
           <img src={rfidImg} alt="" className="w-40"/>
-        </div>
+        </div> */}
     </form>
       </div>
     </div>

@@ -9,6 +9,6 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors({ origin: '*' });
   app.useWebSocketAdapter(new IoAdapter(app));
-  await app.listen(6000);
+  await app.listen(3000);
 }
 bootstrap();
