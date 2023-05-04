@@ -59,11 +59,11 @@ const Modification = () => {
   password.current = watch("nouveauPassword", "")
 
   return (
-      <>
+      <>              <h1 className="text-white mt-4 mb-4 text-center text-2xl font-bold ">
+      Modification du mot de passe
+  </h1>
           <div className="border-primaryBorder drop-shadow-lg m-auto w-3/5 h-1/2 rounded-lg border bg-white px-16">
-              <h1 className="text-emerald-500 mt-4 mb-4 text-center text-2xl font-bold ">
-                  Modfier le mot de passe
-              </h1>
+
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
                   <div className="flex flex-col">
                       <label htmlFor="password" className="text-lg">Actuel mot de passe</label>

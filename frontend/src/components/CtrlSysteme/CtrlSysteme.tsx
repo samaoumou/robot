@@ -136,13 +136,13 @@ function CtrlSysteme() {
     };
     return (
         <div className='flex justify-center gap-16 w-full h-96'>
-            <div className='bg-white-300 rounded-lg drop-shadow-lg w-3/4'>
-                <h1 className='text-center flex justify-center text-emerald-600 text-2xl font-medium m-2'>Piloter la voiture</h1>
+            <div className='bg-white-300 rounded-lg drop-shadow-lg w-2/4'>
+                <h1 className='text-center flex justify-center text-white text-2xl font-medium m-2'>Piloter la voiture</h1>
                 <div className='flex flex-colunm justify-center'>
                     <div className='flex flex-row space-x-14 justify-center px-10'>
 
-                        <div className='bg-blue-300 justify-center w-1/2 h-80 drop-shadow-lg'>
-                            <p className='text-white text-center text-xl m-0'>Ligne droite</p>
+                        <div className='bg-blue-300 justify-center w-1/2 h-60 drop-shadow-lg'>
+                            <p className='text-white text-center text-xl m-0'>Avancer</p>
                             {
                                 toggle ?
                                     <div className='flex justify-center'>
@@ -155,7 +155,7 @@ function CtrlSysteme() {
                             }
                             {
                                 toggle ?
-                                    <div className='bg-white w-24 justify-center h-24 '>
+                                    <div className='bg-white w-24 justify-center h-15 '>
                                         <button
                                             disabled={!arduinoConnected}
                                             onClick={handleClick}
@@ -167,12 +167,12 @@ function CtrlSysteme() {
                                         <p className='text-center font-medium'>Arrêter</p>
                                     </div>
                                     :
-                                    <div className='bg-white w-28 justify-center h-24 rounded-full mt-5 ml-20'>
+                                    <div className='bg-white w-24 justify-center h-15 rounded-full mt-5 ml-2'>
 
                                         <button
                                             disabled={!arduinoConnected}
                                             onClick={handleClick}
-                                            className='flex justify-center ml-6 disabled:opacity-50 disabled:cursor-not-allowed'
+                                            className='flex justify-center ml-3 disabled:opacity-50 disabled:cursor-not-allowed'
                                             title={arduinoConnected ? '' : 'Veuillez connecter l\'arduino'}
                                         >
                                             <svg fill="#FA5252" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="50px" height="50px"><path d="M 8 7 A 1.0001 1.0001 0 0 0 7.8886719 7.0058594 C 3.5337373 7.0663982 0 10.631126 0 15 C 0 19.371502 3.5379402 22.937792 7.8964844 22.994141 A 1.0001 1.0001 0 0 0 8 23 L 22 23 C 26.052135 23 29.281986 19.915394 29.796875 16 L 30 16 L 30 15 C 30 10.593562 26.406438 7 22 7 L 8 7 z M 8 9 C 11.325553 9 14 11.674447 14 15 C 14 18.325553 11.325553 21 8 21 C 4.6744469 21 2 18.325553 2 15 C 2 11.674447 4.6744469 9 8 9 z M 13.271484 9 L 22 9 C 25.325562 9 28 11.674438 28 15 C 28 18.325562 25.325562 21 22 21 L 13.271484 21 C 14.93967 19.532053 16 17.387963 16 15 C 16 12.612037 14.93967 10.467947 13.271484 9 z" /></svg>
@@ -181,7 +181,7 @@ function CtrlSysteme() {
                                     </div>
                             }
                         </div>
-                        <div className='bg-blue-300 justify-center w-1/2 h-80 drop-shadow-lg'>
+                        <div className='bg-blue-300 justify-center w-1/1 h-60 drop-shadow-lg'>
                             <p className='text-white text-center text-xl m-0'>Pivoter</p>
                             {
                                 toggle2 ?
@@ -195,11 +195,11 @@ function CtrlSysteme() {
                             }
                             {
                                 toggle2 ?
-                                    <div className='bg-white w-24 h-24 justify-center rounded-full mt-5 ml-20'>
+                                    <div className='bg-white w-24 justify-center h-20 rounded-full mt-5 ml-1'>
                                         <button
                                             disabled={!arduinoConnected}
                                             onClick={handleClick2}
-                                            className='flex justify-center ml-6 disabled:opacity-50 disabled:cursor-not-allowed'
+                                            className='flex justify-center ml-5 disabled:opacity-50 disabled:cursor-not-allowed'
                                             title={arduinoConnected ? '' : 'Veuillez connecter l\'arduino'}
                                         >
                                             <svg fill="#12B886" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px" height="30px"><path d="M22,7C19.867,7,8.513,7,8,7c-4.418,0-8,3.582-8,8s3.582,8,8,8c0.513,0,11.867,0,14,0c4.418,0,8-3.582,8-8S26.418,7,22,7z M22,21c-3.314,0-6-2.686-6-6s2.686-6,6-6s6,2.686,6,6S25.314,21,22,21z" /></svg>
@@ -207,11 +207,11 @@ function CtrlSysteme() {
                                         <p className='text-center font-medium'>En arriere</p>
                                     </div>
                                     :
-                                    <div className='bg-white w-28 justify-center h-24 rounded-full mt-5 ml-24'>
+                                    <div className='bg-white w-24 justify-center h-20 rounded-full mt-5 ml-1'>
                                         <button
                                             disabled={!arduinoConnected}
                                             onClick={handleClick2}
-                                            className='flex justify-center ml-6 disabled:opacity-50 disabled:cursor-not-allowed'
+                                            className='flex justify-center ml-5 disabled:opacity-50 disabled:cursor-not-allowed'
                                             title={arduinoConnected ? '' : 'Veuillez connecter l\'arduino'}
                                         >
                                             <svg fill="#FA5252" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="50px" height="50px"><path d="M 8 7 A 1.0001 1.0001 0 0 0 7.8886719 7.0058594 C 3.5337373 7.0663982 0 10.631126 0 15 C 0 19.371502 3.5379402 22.937792 7.8964844 22.994141 A 1.0001 1.0001 0 0 0 8 23 L 22 23 C 26.052135 23 29.281986 19.915394 29.796875 16 L 30 16 L 30 15 C 30 10.593562 26.406438 7 22 7 L 8 7 z M 8 9 C 11.325553 9 14 11.674447 14 15 C 14 18.325553 11.325553 21 8 21 C 4.6744469 21 2 18.325553 2 15 C 2 11.674447 4.6744469 9 8 9 z M 13.271484 9 L 22 9 C 25.325562 9 28 11.674438 28 15 C 28 18.325562 25.325562 21 22 21 L 13.271484 21 C 14.93967 19.532053 16 17.387963 16 15 C 16 12.612037 14.93967 10.467947 13.271484 9 z" /></svg>
@@ -225,8 +225,8 @@ function CtrlSysteme() {
                     </div>
                 </div> <br />
                 <div className='flex flex-row space-x-14 justify-center px-10'>
-                <div className='bg-blue-300 justify-center w-1/4 h-40 drop-shadow-lg'>
-                    <p className='text-white text-center text-xl m-0'>Ligne droite</p>
+                <div className='bg-blue-300 justify-center w-1/4 h-60 drop-shadow-lg'>
+                    <p className='text-white text-center text-xl m-0'>ON/OFF</p>
                     {
                         toggleFan ?
                             <div className='flex justify-center'>
@@ -239,7 +239,7 @@ function CtrlSysteme() {
                     }
                     {
                         toggleFan ?
-                            <div className='bg-white w-24 justify-center h-24 '>
+                            <div className='bg-white w-24 flex justify-center h-24 '>
                                 <button
                                     disabled={!arduinoConnected}
                                     onClick={handleClick}
@@ -251,17 +251,17 @@ function CtrlSysteme() {
                                 <p className='text-center font-medium'>Arrêter</p>
                             </div>
                             :
-                            <div className='bg-white w-28 justify-center h-24 rounded-full mt-5 ml-20'>
+                            <div className='bg-white w-24 justify-center h-15 rounded-full mt-5 ml-1'>
 
                                 <button
                                     disabled={!arduinoConnected}
                                     onClick={handleClick}
-                                    className='flex justify-center ml-6 disabled:opacity-50 disabled:cursor-not-allowed'
+                                    className='ml-5 justify-center disabled:opacity-50 disabled:cursor-not-allowed'
                                     title={arduinoConnected ? '' : 'Veuillez connecter l\'arduino'}
                                 >
                                     <svg fill="#FA5252" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="50px" height="50px"><path d="M 8 7 A 1.0001 1.0001 0 0 0 7.8886719 7.0058594 C 3.5337373 7.0663982 0 10.631126 0 15 C 0 19.371502 3.5379402 22.937792 7.8964844 22.994141 A 1.0001 1.0001 0 0 0 8 23 L 22 23 C 26.052135 23 29.281986 19.915394 29.796875 16 L 30 16 L 30 15 C 30 10.593562 26.406438 7 22 7 L 8 7 z M 8 9 C 11.325553 9 14 11.674447 14 15 C 14 18.325553 11.325553 21 8 21 C 4.6744469 21 2 18.325553 2 15 C 2 11.674447 4.6744469 9 8 9 z M 13.271484 9 L 22 9 C 25.325562 9 28 11.674438 28 15 C 28 18.325562 25.325562 21 22 21 L 13.271484 21 C 14.93967 19.532053 16 17.387963 16 15 C 16 12.612037 14.93967 10.467947 13.271484 9 z" /></svg>
                                 </button>
-                                <p className='text-center font-medium'>Arret</p>
+                                <p className='text-center font-medium'>Marche</p>
                             </div>
                     }
                 </div>

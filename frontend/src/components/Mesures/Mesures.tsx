@@ -47,7 +47,7 @@ function Mesures({user}: {user: any}) {
                 </svg>
                 <p className='font-medium text-lg'>{user.prenom} {user.nom}</p>
             </div>
-
+           
         </div>
     )
   

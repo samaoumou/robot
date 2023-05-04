@@ -78,10 +78,10 @@ const ConnexionForm = () => {
   return (
     <div className=" flex ">
       <div className=" h-screen w-screen drop-shadow-5xl bg-[url('assets/voiture2.jpeg')] bg-no-repeat bg-cover bg-center flex justify-end">
-        <div className="bg-blue-400/25 m-8 mr-20 w-3/6">
+        <div className="bg-blue-800/25 m-8 mr-20 w-3/9">
           <h1 className="flex justify-center font-bold mt-10 text-4xl text-white">CONNEXION</h1>
 
-              {errorMessage !=='' && <p className='text-red-600 mt-1 bg-red-100 mx-36 py-1 rounded-md  font-bold text-md text-center'>{ errorMessage }</p>}
+              {errorMessage !=='' && <p className='text-red-600 mt-1 bg-red-200 mx-36 py-1 rounded-md  font-bold text-md text-center'>{ errorMessage }</p>}
 
           {/* formulaire de connexion */}
           <form onSubmit={handleSubmit(onSubmit)} className="  flex flex-col px-32 gap-5 mt-10 items-center">
