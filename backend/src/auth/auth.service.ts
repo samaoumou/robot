@@ -3,7 +3,7 @@ import { ConsoleLogger, Injectable } from '@nestjs/common';
 import { UserService } from '../user/user.service';
 import { JwtService } from '@nestjs/jwt';
 import { LoginUserDto } from '../user/dto/login-user.dto';
-import { RfidDto } from '../user/dto/rfid-user.dto';
+//import { RfidDto } from '../user/dto/rfid-user.dto';
 
 @Injectable()
 export class AuthService {
