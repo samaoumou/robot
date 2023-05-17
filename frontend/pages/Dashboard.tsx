@@ -1,7 +1,7 @@
 import { Navigate, Outlet } from "react-router-dom";
 import Header from "../src/components/Header/Header";
 import Sidebar from "../src/components/Sidebar/Sidebar";
-import Mesures from "../src/components/Mesures/Mesures";
+import Mesures from "../src/components/Mesures/Profil";
 import {useEffect, useState} from "react";
 
 const Dashboard = ({ redirectPath ='/'}: { redirectPath?: string}) => {
